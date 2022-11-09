@@ -1268,7 +1268,7 @@ AS_CASE([$host],
   [x86_64-*-cygwin*],
     [arch=amd64; system=cygwin],
   [riscv64-*-linux*],
-    [arch=riscv; model=riscv64; system=linux]
+    [has_native_backend=yes; arch=riscv; model=riscv64; system=linux]
 )
 
 AS_CASE([$ccomptype],
@@ -2242,13 +2242,13 @@ AC_CONFIG_COMMANDS_PRE([
 
 # Just before config.status is generated, determine the final values for MKEXE,
 # MKDLL, MKMAINDLL and MKEXE_VIA_CC. The final variables controlling these are:
-# $mkexe - the linking commmand and munged CFLAGS + any extra flexlink flags
+# $mkexe - the linking command and munged CFLAGS + any extra flexlink flags
 # $mkexe_exp: same as above but expanded
 # $mkdll - the full linking command for DLLs
 # $mkdll_exp: same as above but expanded
 # $mkmaindll - the full linking command for main program in DLL
 # $oc_ldflags $oc_dll_ldflags are handled as $(OC_LDFLAGS) and
-# $(OC_DLL_LDFLAGS) and can be overidden in the build.
+# $(OC_DLL_LDFLAGS) and can be overridden in the build.
 AC_CONFIG_COMMANDS_PRE([
   # Construct $mkexe
   mkexe="$mkexe_cmd"
